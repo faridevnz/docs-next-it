@@ -5,7 +5,7 @@ badges:
 
 # Render Function API <MigrationBadges :badges="$frontmatter.badges" />
 
-## Overview
+## Panoramica
 
 Questa modifica non riguarda gli utenti di `<template>`.
 
