@@ -1,57 +1,58 @@
 # Template Syntax
 
-Vue.js uses an HTML-based template syntax that allows you to declaratively bind the rendered DOM to the underlying component instance's data. All Vue.js templates are valid HTML that can be parsed by spec-compliant browsers and HTML parsers.
+Vue.js usa una sintassi di templating basata su HTML che ti permette di fare il binding del DOM ai dati dell'istanza del corrispettivo componente in modo dichiarativo. Tutti i template Vue.js sono HTML validi che possono essere renderizzati dai browser compatibili con la spec e dai parser HTML. 
 
-Under the hood, Vue compiles the templates into Virtual DOM render functions. Combined with the reactivity system, Vue is able to intelligently figure out the minimal number of components to re-render and apply the minimal amount of DOM manipulations when the app state changes.
+Sotto il cofano, Vue compila i template in render function per il virtual DOM. Insieme al sistema di reattività, Vue è capace di capire in modo intelligente qual è il numero minimo di componenti da re-renderizzare e capace di applicare il numero minimo di manipolazioni al DOM quando lo stato dell'applicazione cambia. 
 
-If you are familiar with Virtual DOM concepts and prefer the raw power of JavaScript, you can also [directly write render functions](render-function.html) instead of templates, with optional JSX support.
+Se hai familiartià con i concetti relativi al virtual DOM, e preferisci la pura espressività di JavaScript, puoi anche [scrivere direttamente le render functions](render-function.html) invece dei template, con supporto opzionale a JSX. 
 
-## Interpolations
+## Interpolazione
 
-### Text
+### Testi
 
-The most basic form of data binding is text interpolation using the "Mustache" syntax (double curly braces):
+La forma più semplice di binding dei dati è l'interpolazione del testo usando la sintassi "Mustache" (doppia parentesi graffa):
 
 ```html
-<span>Message: {{ msg }}</span>
+<span>Messaggio: {{ msg }}</span>
 ```
 
-The mustache tag will be replaced with the value of the `msg` property from the corresponding component instance. It will also be updated whenever the `msg` property changes.
+Il tag mustache verrà rimpiazzato con il valore della proprietà `msg` della corrispettiva istanza del componente. Sarà anche aggiornata ogni volta che la proprietà `msg` cambierà. 
 
-You can also perform one-time interpolations that do not update on data change by using the [v-once directive](../api/directives.html#v-once), but keep in mind this will also affect any other bindings on the same node:
+Puoi anche fare un'interpolazione one-time che non si aggiorna quando i dati cambiano usando la [direttiva v-once](../api/directives.html#v-once), ma tieni a mente che questo avrà effetto su qualsiasi altro binding nello stesso nodo.
 
 ```html
-<span v-once>This will never change: {{ msg }}</span>
+<span v-once>Questo non cambierà mai: {{ msg }}</span>
 ```
 
 ### Raw HTML
 
-The double mustaches interprets the data as plain text, not HTML. In order to output real HTML, you will need to use the [`v-html` directive](../api/directives.html#v-html):
+Il doppio mustaches interpreta i dati come semplice testo, non HTML. Per avere in output del vero HTML, dovrai usare la [direttiva `v-html`](../api/directives.html#v-html):
 
 ```html
-<p>Using mustaches: {{ rawHtml }}</p>
-<p>Using v-html directive: <span v-html="rawHtml"></span></p>
+<p>Usando i mustaches: {{ rawHtml }}</p>
+<p>Usando la direttiva v-html: <span v-html="rawHtml"></span></p>
 ```
 
 <common-codepen-snippet title="Rendering v-html" slug="yLNEJJM" :preview="false" />
 
-The contents of the `span` will be replaced with the value of the `rawHtml` property, interpreted as plain HTML - data bindings are ignored. Note that you cannot use `v-html` to compose template partials, because Vue is not a string-based templating engine. Instead, components are preferred as the fundamental unit for UI reuse and composition.
+Il contenuto dello `span` sarà rimpiazziato con il valore della proprietà `rawHTML`, interpretata come HTML - i data binding sono ignorati. Nota che non puoi usare `v-html` per comporre parti del template, perchè Vue non è un template engine basato su stringhe. Invece, i componenti sono preferiti come unità fondamentale per la composizione e il riuso delle UI. 
 
 ::: tip
-Dynamically rendering arbitrary HTML on your website can be very dangerous because it can easily lead to [XSS vulnerabilities](https://en.wikipedia.org/wiki/Cross-site_scripting). Only use HTML interpolation on trusted content and **never** on user-provided content
+Renderizzare dinamicamente HTML arbitrario sul tuo sito può essere pericoloso perchè può facilmente portare a [vulnerabilità XSS](https://en.wikipedia.org/wiki/Cross-site_scripting). Usa l'interpolazione HTML solo su componenti trusted e **mai** su contenuti forniti dagli utenti. 
 :::
 
-### Attributes
+### Attributi
 
 Mustaches cannot be used inside HTML attributes. Instead, use a [`v-bind` directive](../api/directives.html#v-bind):
+I mustaches non possono essere usati dentro gli attributi HTML. Invece, use la [ direttiva `v-bind`](../api/directives.html#v-bind):
 
 ```html
 <div v-bind:id="dynamicId"></div>
 ```
 
-If the bound value is `null` or `undefined` then the attribute will not be included on the rendered element.
+Se il valore collegato è `null` o `undefined` allora l'attributi non sarà incluso nell'elemento renderizzato.
 
-In the case of boolean attributes, where their mere existence implies `true`, `v-bind` works a little differently. For example:
+In caso di un attributi booleano, dove la sua mera esistenza implica `true`, `v-bind` funziona in modo pò diverso. Per esempio:
 
 ```html
 <button v-bind:disabled="isButtonDisabled">Button</button>
