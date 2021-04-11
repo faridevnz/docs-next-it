@@ -146,37 +146,37 @@ Vedrai altri esempi di modificatori più tardi, [per `v-on`](events.md#event-mod
 
 ## Shorthands
 
-Il prefisso `v-` è un indizio visivo che aiuta ad identeficare un attributo specifico di Vue nel template. Questo è utile quando stai usando Vue.js per applicare comportamenti dinamici a un markup già esistente, ma può sembrare verboso per alcune direttive usate frequentemente. In questo caso, il bisogno del prefisso `v-` diventa meno importante quando stai sviluppando una [SPA](https://en.wikipedia.org/wiki/Single-page_application), dove Vue gestisce ogni template. Per questo motivo, Vue fornisce una shorthand speciale per due delle sue direttive usate più frequentemente, `v-bind` e `v-on`:
+Il prefisso `v-` è un indizio visivo che aiuta ad identeficare un attributo specifico di Vue nel template. Questo è utile quando stai usando Vue.js per applicare comportamenti dinamici a un markup già esistente, ma può sembrare verboso per alcune direttive usate frequentemente. In questo caso, il bisogno del prefisso `v-` diventa meno importante quando stai sviluppando una [SPA](https://en.wikipedia.org/wiki/Single-page_application), dove Vue gestisce ogni template. Per questo motivo, Vue fornisce una forma abbreviata speciale per due delle sue direttive usate più frequentemente, `v-bind` e `v-on`:
 
-### Shorthand `v-bind`
+### Forma abbreviata `v-bind`
 
 ```html
 <!-- sintassi completa -->
 <a v-bind:href="url"> ... </a>
 
-<!-- shorthand -->
+<!-- forma abbreviata -->
 <a :href="url"> ... </a>
 
-<!-- shorthand con argomenti dinamici -->
+<!-- forma abbreviata con argomenti dinamici -->
 <a :[key]="url"> ... </a>
 ```
 
-### Shorthand `v-on`
+### Forma abbreviata `v-on`
 
 ```html
 <!-- sintassi completa -->
 <a v-on:click="doSomething"> ... </a>
 
-<!-- shorthand -->
+<!-- forma abbreviata -->
 <a @click="doSomething"> ... </a>
 
-<!-- shorthand con argomenti dinamici -->
+<!-- forma abbreviata con argomenti dinamici -->
 <a @[event]="doSomething"> ... </a>
 ```
 
-Potranno sembrare un po' diversi dal normale HTML, ma `:` e `@` sono caratteri validi per i nomi di attributi e tutti i browser supportati da Vue possono farne il parsing correttamente. In aggiunta, non appaiono nel markup renderizzato alla fine. La sintassi shorthand è completamente opzionale, ma probabilmente la apprezzerai quando imparerai di più sul suo uso, più tardi nella guida. 
+Potranno sembrare un po' diversi dal normale HTML, ma `:` e `@` sono caratteri validi per i nomi di attributi e tutti i browser supportati da Vue possono farne il parsing correttamente. In aggiunta, non appaiono nel markup renderizzato alla fine. La sintassi forma abbreviata è completamente opzionale, ma probabilmente la apprezzerai quando imparerai di più sul suo uso, più tardi nella guida. 
 
-> Dalla prossima pagina, useremo la shorthand nei nostri esempi, dato che è questo è l'uso più comune tra gli sviluppatori Vue.
+> Dalla prossima pagina, useremo la forma abbreviata nei nostri esempi, dato che è questo è l'uso più comune tra gli sviluppatori Vue.
 
 ### Avvertimenti 
 
