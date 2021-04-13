@@ -4,7 +4,7 @@
 
 Possiamo usare la direttiva `v-on`, che solitamente viene abbreviata con il simbolo `@`, per
 ascoltare gli eventi del DOM ed eseguire del codice JavaScript quando questi vengono scatenati.
-L'utilizzo sarebbe `v-on:click="nomeMetodo"` o con l'abbreviazione, `@click="nomeMetodo"`
+L'utilizzo è `v-on:click="nomeMetodo"` o con l'abbreviazione, `@click="nomeMetodo"`
 
 Per esempio:
 
@@ -31,7 +31,7 @@ Risultato:
 
 ## Metodi come Handler di Eventi
 
-Se la logica per gestire gli eventi sarà più complessa, mettere il tuo JavaScript nel valore
+Se la logica per gestire gli eventi è più complessa, mettere il tuo JavaScript nel valore
 dell'attributo `v-on` non è fattibile. Per questo `v-on` può anche accettare il nome di un
 metodo che desideri chiamare.
 
@@ -117,7 +117,7 @@ methods: {
 
 ## Handler Multipli
 
-In un hadler puoi avere molteplici metodi separati da virgola come in questo esempio:
+In un handler puoi avere molteplici metodi separati da virgola come in questo esempio:
 
 ```html
 <!-- entrambi one() e two() saranno eseguiti al click del pulsante -->
@@ -140,7 +140,7 @@ methods: {
 
 ## Modificatori di Eventi
 
-È un'esigenza ricorrente chiamare `event.preventDefault()` o `event.stopPropagation()` all'inteno degli handler. Sebbene possiamo farlo facilmente all'interno dei metodi,
+È un'esigenza ricorrente chiamare `event.preventDefault()` o `event.stopPropagation()` all'interno degli handler. Sebbene possiamo farlo facilmente all'interno dei metodi,
 sarebbe meglio se essi contengano soltanto la logica dei dati anzichè avere a che fare con
 i dettagli dell'evento del DOM.
 
@@ -168,7 +168,7 @@ Per affrontare questo problema, Vue fornisce i **modificatori di eventi** per `v
 
 <!-- usare la modalità capture quando si aggiunge un listener di evento -->
 <!-- i.e. l'handle di un evento che ha come target un elemento interno avverrà prima
-dell'handle sull'elmento stesso -->
+dell'handle sull'elemento stesso -->
 <div @click.capture="doThis">...</div>
 
 <!-- il trigger dell'handler avverrà solamente se event.target è l'elemento stesso -->
