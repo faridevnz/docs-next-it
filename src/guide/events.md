@@ -3,7 +3,7 @@
 ## Ascoltare gli Eventi
 
 Possiamo usare la direttiva `v-on`, che solitamente viene abbreviata con il simbolo `@`, per
-ascoltare gli eventi del DOM ed eseguire del codice JavaScript quando questi vengono scatenati.
+ascoltare gli eventi del DOM ed eseguire del codice JavaScript quando questi vengono innescati.
 L'utilizzo è `v-on:click="nomeMetodo"` o con l'abbreviazione, `@click="nomeMetodo"`
 
 Per esempio:
@@ -31,7 +31,7 @@ Risultato:
 
 ## Metodi come Handler di Eventi
 
-Se la logica per gestire gli eventi è più complessa, mettere il tuo JavaScript nel valore
+Se la logica degli handler degli eventi è più complessa, mettere il tuo JavaScript nel valore
 dell'attributo `v-on` non è fattibile. Per questo `v-on` può anche accettare il nome di un
 metodo che desideri chiamare.
 
@@ -68,7 +68,7 @@ Risultato:
 
 <common-codepen-snippet title="Event handling: with a method" slug="jOPvmaX" tab="js,result" :preview="false" />
 
-## Handle Inline degli Eventi
+## Metodi negli Handler Inline"
 
 Anzichè fare il binding direttamente con il nome del metodo, possiamo anche usare i metodi in
 un'istruzione JavaScript inline:
@@ -115,7 +115,7 @@ methods: {
 }
 ```
 
-## Handler Multipli
+## Handler di Eventi Multipli
 
 In un handler puoi avere molteplici metodi separati da virgola come in questo esempio:
 
@@ -130,7 +130,7 @@ In un handler puoi avere molteplici metodi separati da virgola come in questo es
 // ...
 methods: {
   one(event) {
-    // loginca del primo handler...
+    // logica del primo handler...
   },
   two(event) {
     // logica del secondo handler...
@@ -239,7 +239,7 @@ Vue formisce degli alias per i tasti usati più comunemente:
 - `.left`
 - `.right`
 
-## Modificatori dei Tasti di Sistema
+## Tasti Modificatori di Sistema
 
 Puoi usare i seguenti modificatori per scatenare i listener degli eventi di mouse e tastiera
 solamente quando i modificatori corrispondenti verranno premuti:
@@ -265,12 +265,12 @@ Per esempio:
 ```
 
 ::: tip Suggerimento
-Nota che questi modificatori di tasti sono diversi dai normali tasti e quando usati con gli eventi `keyup`, devono essere premuti quando l'evento è emesso. In altre parole, `keyup.ctrl` verrà scatenato solamente se rilascerai un tasto mentre tieni premuto `ctrl`. Esso non verrà scatenato se rilascerai solo il tasto `ctrl`.
+Nota che i tasti modificatori sono differenti dai tasti normali. Quando sono usati con gli eventi `keyup`, devono essere premuti quando l'evento è emesso. In altre parole, `keyup.ctrl` verrà attivato solo se rilasci un tasto mentre tieni premuto `ctrl`. Non verrà attivato se rilasci soltanto `ctrl`.
 :::
 
 ### Il Modificatore `.exact`
 
-Il modificatore `.exact` permette il controllo di una combinazione esatta di modificatori di sistema necessaria per scatenare un evento.
+Il modificatore `.exact` permette di controllare l'esatta combinazione di modificatori di sistema necessaria per scatenare un evento.
 
 ```html
 <!-- questo verrà innescato ugualmente con Alt o Shift premuti -->
@@ -291,12 +291,12 @@ Il modificatore `.exact` permette il controllo di una combinazione esatta di mod
 
 Questi modificatori limitano l'handler agli eventi scatenati da uno specifico pulsante del mouse.
 
-## Perché i Listener in HTML ?
+## Perché i Listener in HTML?
 
 Potresti essere preoccupato del fatto che questo approccio all'ascolto degli eventi violi le buone vecchie regole sulla "separazione degli interessi". Tranquillo - dal momento che le funzioni handler di Vue sono strettamente vincolate al ViewModel che gestisce la vista corrente, non causeranno nessuna difficoltà di manutenzione. Infatti, ci sono molti benefit nell'usare `v-on` o `@`:
 
 1. È più facile individuare l'implementazione delle funzioni handler all'interno del tuo codice JS esaminando il template HTML.
 
-2. Dal momento in cui non devi allacciare manualmente i listener degli eventi in JS, il codice del tuo ViewModel può contenere solamente logica ed essere DOM-free. Questo lo rende più facile da testare.
+2. Dal momento in cui non devi collegare manualmente i listener degli eventi in JS, il codice del tuo ViewModel può contenere solamente logica ed essere DOM-free. Questo lo rende più facile da testare.
 
-3. Quando un ViewModel sarà distrutto, tutti i listener degli eventi verranno automaticamente rimossi. Tu non dovrai preoccuparti di pulirli manualmente.
+3. Quando un ViewModel viene distrutto, tutti i listener degli eventi vengono automaticamente rimossi. Tu non devi preoccuparti di pulirli manualmente.
